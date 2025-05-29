@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PRS Benchmarking Pipeline</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-cover bg-center min-h-screen flex items-center justify-center p-4" style="background-image: url('./assets/background.png');">
+  <div class="bg-white bg-opacity-90 shadow-2xl rounded-2xl w-full max-w-4xl p-8">
+    <h1 class="text-3xl font-bold mb-6 text-center">PRS Benchmarking Pipeline</h1>
+
+    <!-- Input Section -->
+    <section class="mb-8">
+      <h2 class="text-xl font-semibold mb-4">Input Parameters</h2>
+      <div class="space-y-4">
+        <input type="text" placeholder="Enter analysis title..." class="w-full p-3 border rounded-xl" />
+
+        <div class="flex space-x-4">
+          <label class="flex items-center space-x-2">
+            <input type="radio" name="trait" value="binary" class="form-radio" />
+            <span>Binary</span>
+          </label>
+          <label class="flex items-center space-x-2">
+            <input type="radio" name="trait" value="quantitative" class="form-radio" />
+            <span>Quantitative</span>
+          </label>
+        </div>
+
+        <div>
+          <label class="block mb-2 font-medium">Select Tools (Min: 2)</label>
+          <select multiple class="w-full h-40 border rounded-xl p-3" id="toolSelect">
+            <option>Tool One</option>
+            <option>Tool Two</option>
+            <option>Tool Three</option>
+            <option>Tool Four</option>
+            <option>Tool Five</option>
+            <option>Tool Six</option>
+            <option>Tool Seven</option>
+            <option>Tool Eight</option>
+            <option>Tool Nine</option>
+            <option>Tool Ten</option>
+          </select>
+          <p class="text-sm text-gray-500 mt-1">Hold Ctrl (or Cmd on Mac) to select multiple</p>
+        </div>
+
+        <div>
+          <label class="block mb-2 font-medium">Upload Dataset</label>
+          <input type="file" multiple accept=".csv,.txt,.zip" class="w-full border p-3 rounded-xl" />
+          <p class="text-sm text-gray-500 mt-1">Accepted formats: .csv, .txt, .zip</p>
+        </div>
+
+        <button class="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-6 rounded-xl w-full">Run Pipeline</button>
+
+        <!-- Progress Bar Placeholder -->
+        <div class="w-full bg-gray-200 rounded-full h-4 mt-4 hidden" id="progressContainer">
+          <div class="bg-blue-600 h-4 rounded-full" style="width: 0%" id="progressBar"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Output Section -->
+    <section>
+      <h2 class="text-xl font-semibold mb-4">Results</h2>
+      <div class="space-y-4">
+        <div class="bg-gray-100 p-4 rounded-xl">
+          <h3 class="font-medium mb-2">Generated Results Image</h3>
+          <img src="/assets/results.png" alt="PRS Results Visualization" class="w-full rounded-xl border" />
+        </div>
+
+        <div class="bg-gray-100 p-4 rounded-xl">
+          <h3 class="font-medium mb-2">Download Output Files</h3>
+          <ul class="list-disc list-inside">
+            <li><a href="#" class="text-blue-600 underline">prs_results/</a></li>
+            <li><a href="#" class="text-blue-600 underline">log_files/</a></li>
+            <li><a href="#" class="text-blue-600 underline">eval_r2_results/</a></li>
+            <li><a href="#" class="text-blue-600 underline">prs_visualisation_results/</a></li>
+            <li><a href="#" class="text-blue-600 underline">prs_results.table.txt</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>
