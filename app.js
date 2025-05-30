@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
       resultsSection.classList.add("hidden");
       processBtn.textContent = "Run Pipeline";
       isProcessing = false;
+
+      await fetch("https://prs-backend-avi2.onrender.com/clear", { method: "POST" });
       return;
     }
 
@@ -53,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formData.append("dataset", datasetFile);
 
     try {
-      const uploadRes = await fetch("/upload", {
+      const uploadRes = await fetch("https://prs-backend-avi2.onrender.com/upload", {
         method: "POST",
         body: formData,
       });
@@ -73,14 +75,14 @@ document.addEventListener("DOMContentLoaded", () => {
       progressBar.style.width = "100%";
 
       // Show result image
-      resultsImage.src = "/results/prs_visualisation_results/results.png";
+      resultsImage.src = "https://prs-backend-avi2.onrender.com/results/prs_visualisation_results/results.png";
 
       // Create download links
       downloadLinks.innerHTML = "";
       uploadJson.results.forEach(path => {
         const name = path.split("/").pop();
         const link = document.createElement("a");
-        link.href = `/download/${name}`;
+        link.href = `https://prs-backend-avi2.onrender.com/download/${name}`;
         link.className = "text-blue-600 underline";
         link.textContent = name;
         const li = document.createElement("li");
