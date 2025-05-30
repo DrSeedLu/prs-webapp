@@ -1,3 +1,4 @@
+alert("JS Loaded");
 
 document.addEventListener("DOMContentLoaded", () => {
   const titleInput = document.getElementById("titleInput");
